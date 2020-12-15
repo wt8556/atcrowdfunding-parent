@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
+    <!-- sqlSessionFactoryBean -->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="datasource"></property>
+        <!-- mybatis全局配置文件路径 -->
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property>
+        <!-- mapper映射文件的路径:存在impl项目中   mybatis/mapper/*.xml
+            main项目扫描时，也可以扫描到自己依赖jar包的类路径下
+         -->
+        <property name="mapperLocations" value="classpath*:mybatis/mapper/*.xml"></property>
+    </bean>
+
+    <!-- mapper接口所在的包
+            绑定关系：映射文件和mapper接口绑定，namespace和接口名绑定，方法名和标签的id绑定
+     -->
+    <mybatis:scan base-package="com.atguigu.scw.mapper"></mybatis:scan>
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.atguigu.scw.mapper"></property>
+    </bean>-->
+
+
+
+</beans>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    1、将layer的文件拷贝到项目的static目录下
+    2、在需要使用layer的页面中引入jquery和layer的js文件
+ -->
+<script src="static/jquery/jquery-2.1.1.min.js"></script>
+<script src="static/layer/layer.js"></script>
+
+<script type="text/javascript">
+    //弹出信息框：
+    //layer.alert("hehe",{title:"提示:"});
+    //弹出提示框
+    //layer.msg("天王刘德华");
+    //弹出确认框
+    // layer.confirm("你确定删除吗?" , {"title":"FBI警告" , "icon":3} ,function (index) {
+    //     //确认按钮的单击事件
+    //     console.log("发送删除请求。。。");
+    //     //如果我们自己处理了确认框的事件，需要手动关闭layer弹层
+    //     //关闭所有
+    //     //layer.closeAll();
+    //     //关闭指定弹层： 每个layer弹层都有自己的索引
+    //     layer.close(index);
+    // });
+    //弹层加载框
+    //layer.load(1,{time:3000});//time代表layer的自动关闭时间
+    var a = layer.load(2);
+
+    //3秒后关闭layer
+    setTimeout(function(){
+        layer.msg("即将关闭加载框...");
+        layer.close(a);
+    },3000);//window对象会在3秒后自动调用函数。
+
+</script>
+
+
+</body>
+</html>
